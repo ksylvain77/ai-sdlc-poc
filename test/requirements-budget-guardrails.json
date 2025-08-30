@@ -1,0 +1,12 @@
+{
+  "project_name": "Smart Budget Guardrails",
+  "problem_statement": "User has tried 3-4 budget apps that were either too complicated with unnecessary categories or too basic like glorified checklists, wants real-time spending warnings not after-the-fact reports, refuses to link bank accounts for security reasons",
+  "solution_summary": "Simple budget app that provides instant spend-check before purchases and proactive warnings when approaching budget limits, without being annoying or requiring perfect data entry",
+  "data_inputs": "Manual expense entry (amount and category), monthly budget amounts for 4 simple categories",
+  "data_outputs": "Instant green/red light for purchase decisions, proactive text warnings when approaching budget limits, simple current status",
+  "processing_requirements": "Track spending against 4 categories (rent, bills, groceries, everything else), calculate remaining budget in real-time, send warnings at 85% budget usage, handle imperfect/delayed data entry gracefully",
+  "user_interface": "Ultra-fast expense entry (under 10 seconds), quick purchase check, minimal setup with 4 categories only, text message warnings",
+  "frequency": "Daily purchase checks, manual entry every few days, monthly budget resets",
+  "complexity": "simple",
+  "success_criteria": "User doesn't abandon it after 1 month like previous apps, prevents overspending with timely warnings, works with realistic data entry habits, feels like helpful guardrail not annoying nag"
+}
