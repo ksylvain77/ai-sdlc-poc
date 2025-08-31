@@ -1,0 +1,15 @@
+{
+  "project_name": "Simple Bill Reminder System",
+  "problem_statement": "I just keep forgetting to pay some of my household bills on time. I've got paper ones, some that come by email, and I always miss at least one. Then I get hit with late fees, which drives me crazy. I just want something simple that helps me stay on top of them without having to fiddle with spreadsheets.",
+  "solution_summary": "Reminders are the most important part, because that's where I mess up. If it could also let me check off when I've actually paid something, that would be nice too. I don't need it to pay the bills for me, just make sure I don't forget and give me a way to know what's already done.",
+  "data_inputs": "Bill names, due dates, reminder timing preferences",
+  "data_outputs": "Text message reminders, payment confirmation tracking",
+  "processing_requirements": "Schedule and send text reminders before due dates, track payment status, stop reminders when marked as paid",
+  "user_interface": "Texts would be best for me. I always see those right away. Emails I tend to ignore, and I don't want to have to log into a website all the time. A quick text that says 'your bill is due in a few days' would be perfect.",
+  "frequency": "I usually have around 6 or 7 bills each month, and they're pretty much the same ones every time. I'd be fine with setting them up once in the beginning, then maybe just adding a new one once in a while if something changes.",
+  "complexity": "simple",
+  "success_criteria": "I'll know it's working if I don't get any more late fees and I feel confident that I've paid everything on time.",
+  "constraints": "I wouldn't want it to be complicated to set up or use — if it feels like a chore, I'll stop. I don't want to download some huge app that needs an account or has ads everywhere. If I'm traveling, I still need the reminders to come through normally. If the bill amount changes, that's okay — I just care about remembering the due dates.",
+  "deal_breakers": "Complicated setup or use, huge app that needs an account, ads everywhere",
+  "frustration_triggers": "If it spams me with too many reminders, or if I mark something as paid and it still keeps bugging me about it. Also, if it ever misses a reminder and I get a late fee because of it, I'd probably stop using it right away."
+}
