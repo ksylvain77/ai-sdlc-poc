@@ -1,40 +1,51 @@
 # Project Overview
 
-This repository contains an AI Project Inception System that discovers user requirements through intelligent conversation, makes technology decisions based on those requirements, and generates complete software projects with automated SDLC setup. The system transforms user problems into working, deployable projects through a pipeline of AI Discovery → Technology Decision → Project Generation → SDLC Automation.
+This repository contains an AI SDLC Inception Template - a reusable template that transforms ideas into ready-to-build software projects through structured AI contracts. Users copy this template to start new projects, then execute two AI contracts (Discovery + Framework) to go from "I have an idea" to "I'm ready to build" with a complete project scaffold.
 
 ## Folder Structure
 
-TBD - Structure will be determined as we build out the MVP components
+````
+├── contracts/
+│   ├── discovery_contract.md      # Requirements gathering contract
+│   └── framework_contract.md      # Architecture selection contract
+├── requirements/                  # (empty - populated during contract execution)
+├── scaffolding/                   # (empty - populated during contract execution)
+├── examples/                      # Proof-of-concept examples for reference
+│   ├── requirements/              # Example JSON requirements
+│   └── scaffolding/               # Example project scaffolds
+├── README.md                      # Template usage instructions
+├── copilot-instructions.md        # AI agent guidelines
+└── AI_PROJECT_INCEPTION_ROADMAP.md # Development phases
+```## Libraries and Frameworks
 
-## Libraries and Frameworks
-
-Technology choices will be determined by the AI system based on user requirements and project needs. The system will support multiple languages and frameworks including Python, Node.js, Java, Go, and others as specified in the roadmap.
+This template doesn't use specific libraries - the AI executing the contracts generates appropriate technology stacks based on requirements. Proven to work with Node.js/Express, Java/Kafka/Kubernetes, React Native, and other stacks as determined by the AI during contract execution.
 
 ## Coding Standards
 
-1. **Don't make assumptions about technology choices - ask first**
-2. **Don't assume project scope - ask what should be included in the MVP**
-3. **Start with the simplest version that works before adding complexity**
-4. **ALWAYS ask specific clarifying questions instead of making broad assumptions**
-5. **Build one working piece at a time, don't try to implement everything at once**
-6. **For long-running commands (servers, watch processes): use `> /dev/null 2>&1 &` with `isBackground=false` to background without opening new terminals**
-7. **Don't generate large amounts of code without confirming the approach first**
-8. **When editing files, read the existing content first to understand context before making changes**
-9. **When user references previous decisions, ask for specific confirmation before proceeding**
-10. **Never create multiple files without explicit approval of each one**
-11. **Never substitute different deliverables than what was explicitly decided - only create what was agreed upon**
+1. **Template Focus**: This is a template for project inception, not a complex system
+2. **Contract Refinement**: Focus on improving the two core contracts based on feedback
+3. **Simple & Focused**: Two contracts, get a scaffold, start building
+4. **Don't expand scope**: No additional systems, just improve what we have
+5. **Validate changes**: Test contract improvements with real examples
+6. **Document clearly**: Keep README and roadmap aligned with actual capabilities
+7. **Template maintenance**: Focus on making contracts more reliable and usable
+8. **AI-driven decisions**: Contracts guide AI to make appropriate technology choices
+9. **When editing contracts, test with examples to ensure they still work**
+10. **Keep contracts focused on inception phase only**
 
 ## Build and Development
 
-- Use standard Git best practices with automated workflows
-- Create feature branches for each section of work (following the roadmap phases)
-- Merge branches as features are completed
-- Build and test processes will be determined based on the technologies chosen by the AI system
-- Focus on MVP functionality first, then iterate
+- This is a template repository - users copy it to start new projects
+- Use Git branches for contract refinements (currently on phase-3/contract-refinement)
+- Test contract changes with real examples across complexity levels
+- Merge improvements back to main when validated
+- Focus on contract reliability and output quality
 
 ## Project-Specific Guidelines
 
-- Update the roadmap to reflect completed work and next steps before merging each feature branch
-- Follow the 5-phase development approach outlined in the roadmap
-- Prioritize MVP features over advanced functionality
-- The goal is proving the concept works, not building production software
+- Update roadmap to reflect completed contract improvements
+- Follow the 3-phase approach: Discovery ✅, Framework ✅, Refinement 🚧
+- Prioritize contract reliability over feature expansion
+- Test improvements against proven examples (PWA, mobile, API, enterprise)
+- Keep scope focused on project inception template
+````
