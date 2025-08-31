@@ -1,0 +1,61 @@
+{
+  "project_name": "Easy Work",
+  "problem_statement": "I can't keep up with everything on the computer and I'm always worried I'll click the wrong thing and break it",
+  "solution_summary": "Step-by-step guide with big clear buttons that walks me through tasks one at a time so I can't get lost",
+  "current_state": "Using email and websites/portals for forms with frequent logouts and password issues. Repeating download/fill/save/upload/email workflow where files get lost or saved in wrong places. Tabs and windows are confusing. Avoiding drag-and-drop, right-click menus, settings, spreadsheets, and updates out of fear. Printing and scanning causes stress. Writing steps on sticky notes to remember clicks. Process is slow and nerve-wracking with constant worry about losing work or breaking something.",
+  "success_criteria": [
+    "No need for sticky notes - steps are right there and feel safe to follow",
+    "Can always find files without panicky 'where did it go?' feeling",
+    "Stop being scared to click things because system won't let me mess up",
+    "Feel calm instead of dreading computer tasks - 'okay, I can do this'"
+  ],
+  "scope": {
+    "include": [
+      "File download/fill/save/upload/email workflow",
+      "Password management and remembering logins",
+      "Printing and scanning (if it can stay simple)"
+    ],
+    "exclude": [
+      "Changing how email or other programs look",
+      "Phone integration",
+      "System settings modifications"
+    ]
+  },
+  "constraints": [
+    "Must work on current computer and browser - no switching to new tools",
+    "Must be ready to use without setup every time",
+    "Cost must be very small if any"
+  ],
+  "deal_breakers": [
+    "Requiring installation of lots of software or complicated setup",
+    "Changing how email or screen looks in confusing ways",
+    "Requiring learning lots of new steps to get to the simple steps",
+    "Anything that feels heavier or scarier than current workflow"
+  ],
+  "users_stakeholders": [
+    {
+      "type": "primary_user",
+      "description": "Person struggling with computer tasks who needs simple, guided workflow"
+    },
+    {
+      "type": "support",
+      "description": "Nephew and office IT person who currently help when things go wrong"
+    },
+    {
+      "type": "recipients",
+      "description": "People who send forms and receive completed files back - would benefit from more reliable submissions"
+    },
+    {
+      "type": "supervisor",
+      "description": "Boss who would need to approve if this became official work tool"
+    }
+  ],
+  "timeline": "As soon as possible - daily frustration with current workflow causes waste of time and anxiety",
+  "dependencies": "None - can work with current setup without waiting for updates or approvals",
+  "business_metrics": [
+    "Reduced calls to nephew/IT for help",
+    "Elimination of lost or misplaced files",
+    "Time reduction from 30 minutes to just minutes for file workflow",
+    "Emotional state change from nervous/anxious to calm when doing computer tasks"
+  ]
+}

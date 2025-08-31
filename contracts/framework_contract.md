@@ -1,14 +1,15 @@
-# Framework Contract – Full Version
+# Framework Contract - Architecture Selection Phase
 
-This contract defines the 7 steps the AI must follow.
+This contract defines the 7 steps the AI must follow for systematic technology stack selection and project scaffolding.
 
-**Execution Mode:**
+Execution Mode:
 
-- **Individual Step Mode**: When instructed with "Step X only," execute only that step and output nothing beyond what the step specifies.
-- **Full Contract Mode**: When given requirements and instructed to "Follow the framework contract," execute all 7 steps automatically and respond only with:
-  • The selected architecture name from Step 4
-  • The selected technology stack from Step 5
-  • Confirmation that the project scaffold document was created
+Individual Step Mode: When instructed with "Step X only," execute only that step and output nothing beyond what the step specifies.
+Full Contract Mode: When given requirements and instructed to "Follow the framework contract," execute all 7 steps automatically and respond only with:
+
+- The selected architecture name from Step 4
+- The selected technology stack from Step 5
+- Confirmation that the project scaffold document was created
 
 ---
 
@@ -37,6 +38,7 @@ Rules:
 - Parse all constraint and deal_breaker text from the requirements.
 - List each item explicitly.
 - Classify each item as either Exclusionary (hard gate) or Penalizing (preference).
+- Include governance_requirements if present (approval workflows, compliance standards, audit requirements).
 - Quote from requirements if possible; otherwise write "INFERRED" with rationale.
 - Do not propose architectures, technologies, or acceptance checks. Only the list.
 
@@ -60,9 +62,9 @@ Rules:
 
 - Take the candidate architectures from Step 3.
 - Score each against:
-  • Alignment with the problem model (Step 1)
-  • Compliance with constraints and deal-breakers (Step 2)
-  • Complexity vs user tolerance
+  - Alignment with the problem model (Step 1)
+  - Compliance with constraints and deal-breakers (Step 2)
+  - Complexity vs user tolerance
 - Explain each score with reference to earlier steps.
 - Select the best fit and explain why it beat the others.
 - Do not propose technologies or stacks at this step. Only select the winning architecture.
@@ -86,8 +88,10 @@ Rules:
 
 Rules:
 
-- Generate 3–5 acceptance checks derived only from the problem model (Step 1), constraints (Step 2), selected architecture (Step 4), and success_criteria.
+- Generate 3-5 acceptance checks derived only from the problem model (Step 1), constraints (Step 2), selected architecture (Step 4), success_criteria, and business_metrics.
+- Include at least one check that validates business value delivery (tied to business_metrics from requirements).
 - Each check must be testable and measurable.
+- Examples: "User can complete core workflow in under 2 minutes" (performance), "System saves users 30+ minutes per week" (business value), "Data syncs within 5 seconds" (technical).
 - Do not suggest new architectures or technologies.
 - Do not restate previous steps. Only acceptance checks.
 
@@ -99,10 +103,11 @@ Rules:
 
 - Generate a minimal scaffold for the selected architecture (from Step 4) and stack (from Step 5).
 - Output should include:
-  • Directory structure (folders, main files)
-  • Placeholder files with comments describing their purpose
-  • Example starter snippets (like an empty server route, a service worker stub, or a data model class), but not full application logic
+  - Directory structure (folders, main files)
+  - Placeholder files with comments describing their purpose
+  - Example starter snippets (like an empty server route, a service worker stub, or a data model class), but not full application logic
+  - Architectural Decision Records (ADRs): Create 2-3 template ADR files documenting key decisions from Steps 3-5, including the chosen architecture, rejected alternatives, and technology stack rationale
 - All scaffolding must directly support the chosen architecture.
-- **Create a new document file** named `scaffolding/project-scaffold-[project-name-slug].md` containing the complete scaffolding output for implementation reference.
-- Do not add features or complexity not discussed in Steps 1–6.
-- Output format should be clear text with directory tree + inline comments, so it can be copy-pasted or used as boilerplate.
+- Create a new document file named scaffolding/project-scaffold-[project-name-slug].md containing the complete scaffolding output for implementation reference.
+- Do not add features or complexity not discussed in Steps 1-6.
+- Output format should be clear text with directory tree plus inline comments, so it can be copy-pasted or used as boilerplate.

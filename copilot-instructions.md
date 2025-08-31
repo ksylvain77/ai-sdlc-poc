@@ -43,6 +43,19 @@ This template doesn't use specific libraries - the AI executing the contracts ge
 
 ## Project-Specific Guidelines
 
+**Contract Testing Process (Template Refinement Only):**
+- Execute contracts collaboratively with human as intermediary
+- Human takes contract questions to ChatGPT (acting as persona proxy for real users)
+- ChatGPT responds as assigned persona to simulate real user behavior
+- Human brings persona responses back for contract continuation
+- Complete contract execution and create deliverables in workspace
+- This process is only for testing/refining the template, not end-user workflow
+
+**Real End-User Workflow:**
+- Real users copy template and work directly with any AI
+- AI executes contracts with real human users
+- ChatGPT is just a testing proxy, not part of final product
+
 - Update roadmap to reflect completed contract improvements
 - Follow the 3-phase approach: Discovery ✅, Framework ✅, Refinement 🚧
 - Prioritize contract reliability over feature expansion

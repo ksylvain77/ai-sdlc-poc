@@ -1,0 +1,20 @@
+{
+  "project_name": "Order & Inventory Manager",
+  "problem_statement": "Managing customer orders and inventory is a manual, spreadsheet-driven process that wastes hours and constantly leads to mistakes",
+  "solution_summary": "One simple system where orders come in automatically, inventory updates in real time, with at-a-glance visibility of stock levels, sales, and reorder needs",
+  "data_inputs": "Order details (customer info, items, quantities, prices, payment status), current inventory levels (on hand, committed, on order)",
+  "data_outputs": "Sales summaries, low-stock alerts, dashboard showing pending orders, inventory levels, sales trends, clear reports for accounting",
+  "processing_requirements": "Automatically deduct stock when orders come in, flag low-stock items, maintain data consistency, generate alerts and summaries",
+  "user_interface": "Simple web app on computer (primary), mobile phone access for quick checks, email/text alerts for low stock",
+  "frequency": "Daily use for order processing, real-time alerts, weekly for trend analysis",
+  "complexity": "Must be simple and reliable - ease of use more important than extra features, no training needed",
+  "success_criteria": "Process orders without spreadsheets, inventory always matches reality, save several hours per week, prevent costly overselling/stockout mistakes",
+  "constraints": "Cannot be complicated to use, cannot require manual data entry, cannot slow down current processes, must have reliable backups",
+  "deal_breakers": "System unreliability, data loss risk, complexity requiring training, need to babysit the system",
+  "frustration_triggers": "Double-checking system accuracy, fixing system-created errors, still needing spreadsheets due to lack of trust",
+  "business_metrics": "Save 8-10 hours per week, avoid stockout and overselling costs, increase customer satisfaction and repeat business, boost revenue through better service",
+  "stakeholder_priorities": "Owner: Accuracy>User-friendly>Speed, Team: Easy to use (High), Suppliers: Timely accurate orders (High), Customers: Order accuracy and timing (Critical), Accountant: Accurate records and reports (High)",
+  "technical_requirements": "Cloud-based storage with automatic backups, password protection and secure customer data handling, mobile responsive design for phone access",
+  "operational_constraints": "Handle 75-100 orders per week with growth expected, work on computer and mobile, reliable uptime essential",
+  "non_functional_requirements": "Secure data storage, reliable system availability, simple user interface, mobile responsive design, automatic backup systems"
+}
