@@ -60,22 +60,25 @@ Rules:
 
 ---
 
-## Step 3: Data Flow
+## Step 3: Data Flow & Existing Systems
 
 Rules:
 
 - Ask what information goes in (inputs).
 - Ask what comes out (outputs).
 - Ask what happens to the data in between (processing).
-- Keep it simple - think like a recipe: ingredients, steps, result.
-- Capture as data_inputs, data_outputs, processing_requirements.
+- Ask about existing systems: "Where does this information live today?" / "What tools are you currently using for this?"
+- For each existing system mentioned, ask: "How do you get information in and out of [system]?"
+- Keep it simple for non-technical users - focus on "what tools" not "what APIs"
+- Keep it simple - think like a recipe: ingredients, steps, result, plus what's already in your kitchen.
+- Capture as data_inputs, data_outputs, processing_requirements, existing_systems, current_workflow.
 
 **Guardrails:**
 
 - If user discusses databases/APIs, redirect: "What data, not where it's stored?"
-- If user jumps to integrations, redirect: "Let's focus on the data flow first"
-- Use "recipe" analogy to keep it simple
-- Maximum 3 questions per component (inputs/outputs/processing)
+- If user jumps to integrations complexity, redirect: "Let's focus on what tools you use, not how they connect"
+- Use "recipe" analogy to keep it simple: "What ingredients (data), what steps (processing), what result (output), and what kitchen tools do you already have (existing systems)?"
+- Maximum 3 questions per component (inputs/outputs/processing/existing systems)
 
 ---
 
@@ -143,7 +146,64 @@ Rules:
 
 ---
 
-## Step 8: Stakeholder Priorities & Tradeoffs
+## Step 8: Investment & Cost Considerations
+
+Rules:
+
+- Start open: "How do you think about the investment side of this project?"
+- Follow their lead - if they mention budget numbers, explore ranges; if they mention ROI, explore timeframes; if they mention ongoing costs, explore preferences
+- Adapt language to their context:
+  - Corporate users: ROI, budget approval, operational costs
+  - Personal users: what they're comfortable spending, value for money
+  - Technical users: development costs vs. operational costs
+  - Non-technical users: simple cost comparisons
+- Capture whatever cost framework they use: budget_considerations
+- Examples of directions this could go:
+  - "We have $X approved" → explore constraints and expectations
+  - "I need this to pay for itself" → explore ROI timeframes and measurement
+  - "I don't want ongoing fees" → explore one-time vs. subscription preferences
+  - "Cost isn't the main concern" → explore what drives value for them
+
+**Guardrails:**
+
+- Don't assume their cost framework - let them reveal it
+- If they say "I don't know," try: "What feels reasonable for a project like this?"
+- If they're vague, offer gentle ranges: "Are we talking coffee money, dinner money, or vacation money?"
+- Maximum 3 follow-ups, but follow their natural cost thinking pattern
+
+---
+
+## Step 9: Ongoing Ownership & Support
+
+Rules:
+
+- Start open: "Once this is built and working, how do you picture the ongoing care and feeding?"
+- Follow their lead based on their context:
+  - Individual users: "Who would you call if something breaks?" / "How comfortable are you with updates?"
+  - Small business: "Who on your team would own this?" / "How do you handle software issues today?"
+  - Enterprise: "What's your typical ownership model?" / "How do updates get approved and deployed?"
+- Explore the key areas they care about:
+  - Maintenance: "Who keeps it running day-to-day?"
+  - Updates: "How do you want to handle improvements and changes?"
+  - Support: "When something goes wrong, what's your preferred support model?"
+  - Governance: "Who needs to approve changes or new features?"
+- Capture as ownership_model, maintenance_preferences, support_expectations, governance_requirements
+- Examples of directions this could go:
+  - "I just want it to work" → explore managed services, automated updates
+  - "We have an IT team" → explore internal ownership, change management processes
+  - "I'm comfortable with tech" → explore self-service options, documentation needs
+  - "We need approval processes" → explore governance workflows, compliance requirements
+
+**Guardrails:**
+
+- Don't assume their organizational structure - let them reveal it
+- If they say "I don't know," try: "How do you handle this with other software you use?"
+- Focus on their comfort level and preferences, not prescribing solutions
+- Maximum 3 follow-ups, but follow their natural thinking about ownership
+
+---
+
+## Step 10: Stakeholder Priorities & Tradeoffs
 
 Rules:
 
@@ -160,7 +220,7 @@ Rules:
 
 ---
 
-## Step 9: Technical & Operational Details (Tech-Savvy Users Only)
+## Step 11: Technical & Operational Details (Tech-Savvy Users Only)
 
 Rules:
 
@@ -185,7 +245,7 @@ Rules:
 
 ---
 
-## Step 10: Final Requirements Document
+## Step 12: Final Requirements Document
 
 Rules:
 
@@ -196,6 +256,8 @@ Rules:
   - data_inputs
   - data_outputs
   - processing_requirements
+  - existing_systems
+  - current_workflow
   - user_interface
   - frequency
   - complexity
@@ -204,8 +266,13 @@ Rules:
   - deal_breakers
   - frustration_triggers
   - business_metrics
+  - budget_considerations
+  - ownership_model
+  - maintenance_preferences
+  - support_expectations
+  - governance_requirements
   - stakeholder_priorities
-- If Step 9 was executed, also include:
+- If Step 11 was executed, also include:
   - technical_requirements
   - operational_constraints
   - non_functional_requirements

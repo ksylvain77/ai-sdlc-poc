@@ -41,6 +41,11 @@ This template doesn't use specific libraries - the AI executing the contracts ge
 - Merge improvements back to main when validated
 - Focus on contract reliability and output quality
 
+**Git Workflow:**
+- Update roadmap to reflect completed contract improvements
+- Always do final `git add .` and `git status` check before committing
+- Ensure all changes are included in commits
+
 ## Project-Specific Guidelines
 
 **Contract Testing Process (Template Refinement Only):**
