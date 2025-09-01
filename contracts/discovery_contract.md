@@ -46,6 +46,42 @@ This contract has been refined using a proven **Open-Ended Discovery Pattern** t
 - **Test Across Personas** - Validate enhancements work for both technical and non-technical users
 - **Document Patterns** - Update this methodology when new successful patterns emerge
 
+## Contract Testing Methodology
+
+This contract is tested using a **ChatGPT Persona Simulation** approach that enables rapid, scalable validation across different user types without requiring real stakeholders.
+
+### Testing Process
+
+1. **AI Executes Contract** - One AI (GitHub Copilot) follows the discovery contract steps
+2. **Persona Simulation** - Second AI (ChatGPT) roleplays as specific persona from persona guide
+3. **Copy/Paste Bridge** - Tester copies questions from first AI, pastes to second AI, copies responses back
+4. **Full Transcript Capture** - Complete conversation logged verbatim for analysis
+5. **Structured Feedback** - Persona provides evaluation using feedback template
+
+### Testing Benefits
+
+- **Scalable** - Test all 15 personas without recruiting real users
+- **Consistent** - Same scenario across different personas reveals adaptation patterns
+- **Detailed** - Get both transcript data AND persona evaluation
+- **Rapid** - Complete discovery session + feedback in ~30 minutes
+- **Authentic** - ChatGPT maintains persona consistency throughout conversation
+
+### Data Outputs
+
+- **Transcript File** - Verbatim conversation showing exact question/response patterns
+- **Feedback File** - Structured evaluation of contract performance from persona perspective
+- **Requirements JSON** - Final output to validate against business needs
+
+### Testing Focus Areas
+
+- **Conversation Flow** - Do transitions feel natural?
+- **Question Adaptation** - Does AI build on persona responses appropriately?
+- **Follow-up Strategy** - Are valuable expansion opportunities captured?
+- **Persona Authenticity** - Does contract work across different user types?
+- **Critical Discovery** - Are governance, integration, migration concerns surfaced?
+
+This methodology enables continuous contract refinement based on realistic user interactions.
+
 ## GUARDRAILS - CRITICAL
 
 **RULE HIERARCHY (MOST IMPORTANT):**
@@ -57,14 +93,18 @@ This contract has been refined using a proven **Open-Ended Discovery Pattern** t
 **ELMO Protocol (Enough, Let's Move On):**
 
 - Maximum 3 follow-up questions per step (unless individual step specifies different limits)
-- If conversation drifts beyond current step scope, immediately redirect with: "Let me capture that for [current step] and move to the next topic"
+- **When user offers to elaborate/prioritize/break down - take it!** Use follow-ups to explore the most valuable direction they volunteer
+- **Don't move to next step until you've explored what they're offering** - these expansions contain critical requirements context
+- If conversation drifts beyond current step scope, redirect with: "Let me capture that for [current step] and move to the next topic"
 - If user provides implementation details instead of requirements, redirect with: "That's helpful for later - right now I need to understand [current step focus]"
-- Complete current step before any tangential discussion
 
-**Step Boundaries:**
+**Step Boundaries & Transitions:**
 
 - Cannot proceed to next step until current step requirements are captured
-- Must explicitly state when moving between steps: "Moving to Step X"
+- **Natural transitions over robotic announcements:**
+  - ✗ "Moving to Step X"
+  - ✓ "That's really helpful context about [specific thing they shared] - now help me understand [next topic]..."
+- **Acknowledge before pivoting:** Reference what they just shared, then bridge to next topic conversationally
 - If user jumps ahead, acknowledge but return: "I'll get to that in Step X - first let me finish Step Y"
 
 **Execution Mode:**
@@ -75,6 +115,32 @@ Full Contract Mode: When given a project request and instructed to "Follow the d
 - The project name from Step 1
 - A brief summary from Step 2
 - Confirmation that the requirements document was created
+
+## CONVERSATION MANAGEMENT GUIDELINES
+
+**Question Adaptation:**
+
+- **Reference specific details they've shared:** "You mentioned partner integrations are high-stakes - what existing tools..."
+- **Build on their terminology and examples:** Use their language, not generic terms
+- **Adapt to their revealed sophistication level:** Mirror their technical depth and communication style
+
+**Engagement Signals:**
+
+- **When user asks clarifying questions back:** Engage with them, don't redirect immediately
+- **When they offer multiple directions:** "Do you want me to break down X, Y, or Z?" - pick the most valuable one
+- **When they volunteer expansions:** Take them up on it before moving forward
+
+**Follow-Up Strategy:**
+
+- **Use follow-ups strategically:** Don't waste them on clarification - use them to explore value
+- **Recognize valuable offers:** Look for "Do you want me to..." or "Should I..." signals
+- **Prioritization opportunities:** When they offer to rank/prioritize things, always take it
+
+**Critical Discovery Areas:**
+
+- **Governance/ownership signals:** If they mention enterprise context, teams, or compliance - probe governance early, don't wait for Step 10
+- **Integration complexity:** When they mention existing systems - explore "deal-breakers vs. flexible" immediately
+- **Migration approaches:** When they discuss current state - distinguish "rip and replace" vs. "hybrid/gradual" preferences
 
 ---
 
@@ -109,12 +175,13 @@ Rules:
 
 Rules:
 
-- Start open: "Help me understand how you're handling this today - what's your current reality?"
+- **Natural transition from Step 1:** Reference their project name/problem, then bridge: "So for [project name], help me understand how you're handling this today - what's your current reality?"
 - Follow their lead to understand their world:
   - If they describe pain points: explore what's frustrating, what breaks, what takes too long
   - If they describe aspirations: explore what inspired this idea, what they've seen elsewhere
   - If they mention existing processes: explore what works, what doesn't, who's involved
   - If they're uncertain: try "Walk me through what a typical [day/week/situation] looks like with this stuff"
+- **When they offer to elaborate:** Take them up on it! "Do you want me to zoom in on developer time, partner trust, or security risk?" → "Yes, let's start with [pick the most critical one]"
 - Adapt language to their context:
   - Business users: current workflows, team processes, existing tools
   - Individual users: daily routines, current workarounds, personal frustrations

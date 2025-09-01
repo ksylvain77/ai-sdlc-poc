@@ -1,0 +1,89 @@
+{
+  "project_name": "External Brain",
+  "problem_statement": "Need something that remembers for me - a brain outside my brain that keeps track of all the little bits of information that pop into my head so I can stop carrying mental weight and stop letting people down when I forget things.",
+  "current_state": "Information scattered across sticky notes, phone notes app, and trying to keep things in my head. No real system - just scattered pieces everywhere. Often can't remember where I put something (paper, phone, or never wrote it down at all) and waste time hunting or give up entirely.",
+  "inspiration_context": "Building frustration over time, with a specific breaking point when lost someone's phone number that was written down somewhere and had to embarrassingly ask for it again. The 'ugh, I can't keep doing this' moment.",
+  "stakeholders_involved": [
+    "Primarily personal use - main user who needs brain-help most",
+    "Family members - get frustrated when user forgets plans or details, think user wasn't paying attention",
+    "Coworkers - have to remind user or waste time re-doing things when user forgets",
+    "Potential future: family could add things directly instead of relying on user to remember"
+  ],
+  "data_flow": {
+    "types": [
+      "People's phone numbers and personal details",
+      "Tasks and errands - follow-ups, random 'don't forget' items",
+      "Dates and times - small appointments, when promised to call someone",
+      "Ideas that pop up in the moment",
+      "Passwords (though these need somewhere 'secure')",
+      "Anything that pops into head that feels important in the moment but slips away if not caught"
+    ],
+    "volume": "20-30 things floating around by end of week, some days just a couple things, other days feels like juggling a dozen bits and pieces",
+    "flow_pattern": "Constant stream of little bits of information throughout the day that need to be caught and retrieved later"
+  },
+  "existing_systems": {
+    "primary_devices": "Phone (always with user), computer (when sitting at desk)",
+    "current_tools": "Notes app sometimes, reminders app, but forgets to look at them so they don't help",
+    "integration_preference": "Should definitely work with phone, uncertain about computer - worried about making it more confusing",
+    "scattered_locations": "Sticky notes, phone notes, trying to keep in head"
+  },
+  "success_criteria": [
+    "Brain can finally relax - no more mental weight from trying not to forget things",
+    "Can trust that everything needed is in one place and can find it fast",
+    "Replace panic ('where's that number?') with calm confidence",
+    "Stop dropping the ball on life's little and not-so-little things"
+  ],
+  "users": {
+    "primary_user": "Individual who needs memory assistance, trying to not drop balls on daily life tasks and commitments",
+    "potential_family": "Could add things directly instead of relying on user to remember, but keeping it personal initially",
+    "work_context": "Uncertain about coworker sharing - might get messy, so personal use first"
+  },
+  "failure_scenarios": [
+    "Becomes another thing to keep track of - complicated steps to use it",
+    "Turns into digital clutter - put stuff in but never find it again because it gets buried",
+    "Doesn't stick - try for a week then abandon it like other apps",
+    "Too fiddly - too many buttons or settings causing overwhelm",
+    "Doesn't help right away - lose interest before it has chance to work",
+    "Forces too much organization upfront - resists using if has to categorize everything perfectly"
+  ],
+  "timeline": {
+    "urgency_level": "Sooner the better - every time something important gets lost it feels urgent in that moment",
+    "pressure_source": "Personal desire to stop having little crises, no external deadlines",
+    "motivation": "Ready to finally get a handle on scattered information"
+  },
+  "budget": {
+    "preference": "Free would be ideal",
+    "acceptable": "Small monthly cost if it actually works and really solves the problem",
+    "limit": "Not huge amount, would bail if it gets into 'subscription overload' territory",
+    "value_focus": "Cost justified only if it demonstrably works"
+  },
+  "risks": [
+    "User not sticking with it - will slip back to old habits if feels like effort",
+    "Too overwhelming - too many buttons/settings will cause abandonment",
+    "Slow to show value - will lose interest if doesn't help immediately",
+    "Complexity barrier - confusing or complicated interface leads to giving up"
+  ],
+  "success_metrics": [
+    "Stop losing things that were written down",
+    "People stop having to remind user of promised things",
+    "Less 'oh no, I forgot' panic feeling",
+    "No more random sticky notes everywhere",
+    "Life feels smoother and can trust self more"
+  ],
+  "cost_of_inaction": [
+    "More of the same - missed things, wasted time hunting for notes",
+    "Continued embarrassment when forgetting stuff",
+    "Ongoing stress and scattered feeling",
+    "Mental load buzzing - brain always trying not to drop anything (exhausting)",
+    "Continuing to let people down which user really doesn't want"
+  ],
+  "confidence_requirements": [
+    "Really simple - can add something in two seconds without thinking",
+    "Reliable - will still be there when needed, won't disappear or get lost in menus",
+    "Easy to check - one place to look and instantly see what's needed",
+    "Feels natural - not like a chore, more like a habit that fits into day"
+  ],
+  "additional_considerations": {
+    "flexibility_need": "Shouldn't feel too formal - needs to handle both messy brain-dumps and organized stuff without forcing choice upfront. Sometimes just wants to jot something quick and messy, figure it out later."
+  }
+}

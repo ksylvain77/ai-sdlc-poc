@@ -1,0 +1,112 @@
+{
+  "project_name": "One Login, Everywhere",
+  "problem_statement": "Need a unified, standards-based authentication system that every app, service, and partner can rely on—no more hacks, no more exceptions.",
+  "current_state": "Patchwork of authentication methods: web app uses cookie-based sessions, mobile apps use static bearer tokens that don't expire properly, microservices have inconsistent service accounts and shared tokens, partner integrations require one-off adapters because we don't support real OAuth flows.",
+  "inspiration_context": "Breaking point was a partner integration requiring OAuth 2.0 with PKCE and dynamic client registration that we couldn't support, forcing weeks of delay building an adapter. Security team pressure from audits flagging static bearer tokens as unacceptable.",
+  "stakeholders_involved": [
+    "Developers - wrestling with current mess daily, biggest beneficiaries of standardization",
+    "Security team - pushing for tighter controls, need to sign off on implementation",
+    "Product managers - feel pain indirectly from integration delays and user complaints",
+    "Partners - external integrations depend on real standards support",
+    "Executives/compliance leads - audits and customer trust concerns"
+  ],
+  "data_flow": {
+    "types": [
+      "User identities (employee logins, customer accounts, partner accounts) - currently fragmented across systems",
+      "Access tokens/sessions - grant permission to act on behalf of user/system, inconsistent format and lifetime",
+      "Claims/roles - identity metadata and permissions, critical but scattered",
+      "Service-to-service credentials - machine identities for microservices, often static keys that live too long"
+    ],
+    "flows": "User or service authenticates → token/session issued → token carries identity/role claims and authorizes requests",
+    "pain_point": "Each environment (web, mobile, services, partners) has its own flavor of these flows—no unified model"
+  },
+  "volume": {
+    "web_sessions": "Few hundred active users, 2-3K login/session refreshes per day",
+    "mobile_auth": "Lighter user base but very chatty, few thousand auth calls daily",
+    "microservice_calls": "Tens of thousands of token checks or credential handoffs each day",
+    "partner_integrations": "Smaller in raw numbers but high-stakes, single failed handshake can delay entire workflows",
+    "scale_impact": "Human logins in thousands, system-to-system traffic in tens of thousands - inconsistency compounds fast at scale"
+  },
+  "existing_systems": {
+    "legacy_identity": "LDAP directory powers older internal apps",
+    "cloud_idp": "Azure AD for corporate logins (SSO into Office 365, SaaS apps)",
+    "auth_libraries": "Passport.js in Node web stack (configured inconsistently), custom token handling in mobile",
+    "api_gateway": "Kong in place but mostly routes traffic, not enforcing strong auth/authorization policies",
+    "monitoring": "SIEM (Splunk) hooked to logs but poor visibility due to fragmented auth",
+    "constraint": "Solution must bridge legacy LDAP, modern Azure AD, and custom developer additions"
+  },
+  "success_criteria": [
+    "One consistent login story - same auth flow for web, mobile, microservice, partner",
+    "Security sign-off - audits stop flagging static tokens, security team trusts setup",
+    "Developer speed - spin up new service or integrate partner without weeks of custom auth glue",
+    "User experience - end users stop complaining about login weirdness or session timeouts",
+    "Partner confidence - can answer 'yes' immediately to OAuth 2.0 + PKCE requirements",
+    "Auth becomes invisible - stops being bottleneck and quietly enables everything else"
+  ],
+  "users": {
+    "developers": "Touch it most, need to register apps/get tokens/validate requests/debug flows, goal is build features without wrestling auth",
+    "end_users": "Employees/customers/partners want seamless login: one password/SSO, no confusing prompts, predictable sessions",
+    "security_it_admins": "Oversee policies, manage identities, review logs, goal is enforce compliance and catch anomalies without drowning in fragmented systems"
+  },
+  "failure_scenarios": [
+    "Half-migration - new auth system but legacy apps never move, maintaining two auth worlds forever",
+    "Bad UX - users get more logins, more prompts, flaky SSO causing revolt",
+    "Integration blockers - partners/mobile discover system doesn't meet spec (PKCE not fully implemented)",
+    "Security gaps - misconfigured token lifetimes, scopes, key rotation opens new holes",
+    "Developer slowdown - system too rigid/complex, dev teams route around it with exceptions",
+    "Net result: extra complexity without real unification"
+  ],
+  "timeline": {
+    "security_audits": "Next formal review in 6 months, need credible plan or progress",
+    "partner_roadmap": "Two integrations on horizon (one this quarter, one early next) expecting standard OAuth flows",
+    "internal_pressure": "Leadership wants fewer IT exceptions, auth is known sore spot",
+    "realistic_target": "Something tangible in 3-6 months - unified platform stood up and proven on at least one partner integration"
+  },
+  "budget": {
+    "people": "Small security team, couple platform engineers, dev teams can adapt if foundation solid",
+    "money": "Room to license serious IdP solution (Okta, Auth0, Azure AD B2C) to accelerate",
+    "constraint": "No appetite for ongoing heavy ops cost, needs to be maintainable without dedicated squad",
+    "preference": "Moderate budget, strong ROI need, prefer proven solution to adopt rather than invent"
+  },
+  "risks": [
+    "Legacy gravity - old apps tied to LDAP/custom auth never migrate, stuck supporting old mess",
+    "Organizational resistance - dev teams see new system as extra hoops not time-saver, shadow auth patterns creep back",
+    "Partner demands shift - major partner suddenly requires SAML, OIDC, other protocol not planned",
+    "Budget creep - licensing IdP or managed service costs balloon if usage scales faster than expected",
+    "Execution risk - implementing incorrectly leaves less secure than before even if looks modern"
+  ],
+  "success_metrics": {
+    "security_compliance": [
+      "% of apps and services migrated off static tokens",
+      "Number of audit findings related to auth (goal: zero)",
+      "Token/key rotation logs showing consistent enforcement"
+    ],
+    "developer_productivity": [
+      "Time to onboard new service/integration (goal: hours not weeks)",
+      "Number of custom auth adapters maintained (should decline)",
+      "Dev surveys/feedback on ease of use"
+    ],
+    "user_partner_experience": [
+      "Support tickets about login/session issues (should trend down)",
+      "Partner onboarding time (faster, fewer blockers)",
+      "End-user login success rates/reduced churn on auth flows"
+    ]
+  },
+  "cost_of_inaction": [
+    "Security exposure - static tokens and inconsistent auth keep failing audits, open to breaches",
+    "Partner friction - every new integration burns weeks on custom adapters, looks unprofessional",
+    "Developer drag - teams waste cycles on auth plumbing instead of features, morale hit",
+    "User pain - login quirks erode trust, potential customer churn",
+    "Reputation hit - weak security and UX loses credibility with partners, auditors, leadership"
+  ],
+  "confidence_requirements": [
+    "Standards compliance - must support OAuth 2.0, OIDC, PKCE, proper scopes/claims",
+    "Proven integration - working cleanly with legacy app, mobile client, external partner",
+    "Security sign-off - security team validates flows, token handling, key rotation as audit-ready",
+    "Developer adoption - easier to use new system than hack around it, clear docs/SDKs",
+    "Migration path - plan for pulling legacy apps in without endless re-writes"
+  ],
+  "additional_considerations": {
+    "governance": "Need clarity on long-term ownership: who manages client registrations, monitors logs/incidents, drives ongoing upgrades (WebAuthn, passkeys). Without accountability, platform will drift back to chaos."
+  }
+}
