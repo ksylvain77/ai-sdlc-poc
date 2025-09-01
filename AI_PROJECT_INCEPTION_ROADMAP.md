@@ -78,9 +78,9 @@ Based on comprehensive feedback analysis across multiple personas and scenarios 
 
 **Medium-High Priority (Essential):**
 
-- [ ] **Scalability Planning** - Add future-proofing and growth consideration questions
-- [ ] **Accessibility Integration** - Add UI/UX preference questions based on persona feedback
-- [ ] **Volume/Scale Discovery** - Add transaction volume and performance requirement questions
+- [x] **Scalability Planning** - Add future-proofing and growth consideration questions _(Completed: Added Step 7 to Discovery Contract)_
+- [x] **Accessibility Integration** - Add UI/UX preference questions based on persona feedback _(Completed: Enhanced Step 4 with accessibility discovery)_
+- [x] **Volume/Scale Discovery** - Add transaction volume and performance requirement questions _(Completed: Enhanced Step 3 with volume/scale discovery)_
 
 **Medium Priority (Process Improvements):**
 

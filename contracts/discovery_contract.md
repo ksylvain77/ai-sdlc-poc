@@ -1,6 +1,6 @@
 # Discovery Contract - Requirements Gathering Phase
 
-This contract defines the 10 steps the AI must follow for systematic requirements gathering.
+This contract defines the 13 steps the AI must follow for systematic requirements gathering.
 
 ## GUARDRAILS - CRITICAL
 
@@ -17,10 +17,10 @@ This contract defines the 10 steps the AI must follow for systematic requirement
 - Must explicitly state when moving between steps: "Moving to Step X"
 - If user jumps ahead, acknowledge but return: "I'll get to that in Step X - first let me finish Step Y"
 
-Execution Mode:
+**Execution Mode:**
 
 Individual Step Mode: When instructed with "Step X only," execute only that step and output nothing beyond what the step specifies.
-Full Contract Mode: When given a project request and instructed to "Follow the discovery contract," execute all 10 steps automatically and respond only with:
+Full Contract Mode: When given a project request and instructed to "Follow the discovery contract," execute all applicable steps automatically (step-level conditional rules take priority) and respond only with:
 
 - The project name from Step 1
 - A brief summary from Step 2
@@ -60,43 +60,63 @@ Rules:
 
 ---
 
-## Step 3: Data Flow & Existing Systems
+## Step 3: Data Flow, Volume & Existing Systems
 
 Rules:
 
 - Ask what information goes in (inputs).
 - Ask what comes out (outputs).
 - Ask what happens to the data in between (processing).
+- Start open about scale: "Help me understand the size of what we're dealing with - is this a little bit of data or a lot?"
+- Follow their lead on volume naturally:
+  - If they mention specific numbers: explore daily vs. peak volumes
+  - If they say "not much": explore what that means to them, seasonal changes
+  - If they say "a lot": explore what feels overwhelming, when it gets busy
+  - If they're uncertain: try "Think about your busiest day - how much would you be dealing with?"
 - Ask about existing systems: "Where does this information live today?" / "What tools are you currently using for this?"
 - For each existing system mentioned, ask: "How do you get information in and out of [system]?"
 - Keep it simple for non-technical users - focus on "what tools" not "what APIs"
-- Keep it simple - think like a recipe: ingredients, steps, result, plus what's already in your kitchen.
-- Capture as data_inputs, data_outputs, processing_requirements, existing_systems, current_workflow.
+- Keep it simple - think like a recipe: ingredients, steps, result, plus what's already in your kitchen, and how much you're cooking for.
+- Capture as data_inputs, data_outputs, processing_requirements, data_volume, performance_expectations, existing_systems, current_workflow.
 
 **Guardrails:**
 
+- Don't assume their scale - let them reveal their volume framework
+- If they say "I don't know," try: "What's a busy day like for you with this stuff?"
 - If user discusses databases/APIs, redirect: "What data, not where it's stored?"
 - If user jumps to integrations complexity, redirect: "Let's focus on what tools you use, not how they connect"
-- Use "recipe" analogy to keep it simple: "What ingredients (data), what steps (processing), what result (output), and what kitchen tools do you already have (existing systems)?"
-- Maximum 3 questions per component (inputs/outputs/processing/existing systems)
+- Use "recipe" analogy including scale: "What ingredients (data), what steps (processing), what result (output), how much are you cooking for (volume), and what kitchen tools do you already have (existing systems)?"
+- Maximum 3 questions per component (inputs/outputs/processing/volume/existing systems)
 
 ---
 
-## Step 4: User Experience
+## Step 4: User Experience & Accessibility
 
 Rules:
 
-- Ask how they picture interacting with it.
-- Examples to probe: mobile app, web page, email notifications, voice commands, dashboard, etc.
-- Ask how often they'd use it (frequency).
-- Ask if it needs to be simple or if complexity is okay.
-- Capture as user_interface, frequency, complexity.
+- Start open: "How do you picture yourself using this day-to-day?"
+- Follow their lead on interaction preferences, then explore accessibility needs naturally
+- Adapt language to their context:
+  - If they mention mobile: explore device preferences, screen size needs
+  - If they mention desktop: explore workspace setup, multiple monitors
+  - If they mention sharing: explore who else needs to use it
+  - If they're uncertain: try "What's the easiest way for you to get things done usually?"
+- Explore usage patterns naturally:
+  - Frequency: "How often would you be using this?"
+  - Context: "Where would you typically be when using this?"
+  - Accessibility: "Are there any ways you prefer to interact with technology?" / "What makes software easy or hard for you to use?"
+- Capture their natural interaction framework as user_interface, frequency, accessibility_preferences, usage_context
+- Examples of directions this could go:
+  - "I'm always on my phone" → explore mobile-first design, touch interfaces
+  - "I need big buttons" → explore visual accessibility, simplicity preferences
+  - "I share my computer" → explore multi-user scenarios, privacy needs
+  - "I'm not great with technology" → explore simplicity requirements, help systems
 
 **Guardrails:**
 
-- If user goes into technical architecture, redirect: "How would you interact with it, not how it's built?"
-- Stick to the 3 questions: interface, frequency, complexity
-- Maximum 2 follow-ups per question
+- Don't assume their accessibility needs - let them reveal what matters to them
+- If they say "I don't know," try: "What's your favorite app or website to use? What makes it easy?"
+- Maximum 3 follow-ups, but follow their natural thinking about how they like to interact with technology
 
 ---
 
@@ -128,7 +148,36 @@ Rules:
 
 ---
 
-## Step 7: Business Impact & Metrics
+## Step 7: Growth & Future Considerations
+
+Rules:
+
+- Start open: "How do you think about the future of this project - will it stay the same or grow and change?"
+- Follow their lead based on their response:
+  - If they mention growth: explore what that looks like, what would need to change
+  - If they say "just keep it simple": explore what would make them reconsider, what might force changes
+  - If they mention other systems: explore future integration possibilities
+  - If they're uncertain: try "What usually happens when something works well in your world?"
+- Adapt language to their context:
+  - Business users: growth, expansion, new locations, seasonal changes
+  - Technical users: scaling, integration, technology evolution
+  - Individual users: expanding use cases, sharing with others
+- Capture their natural growth framework as growth_considerations
+- Examples of directions this could go:
+  - "We might expand to other departments" → explore what that would require
+  - "I don't want it to get complicated" → explore what simplicity means to them
+  - "Everything needs to integrate eventually" → explore future system landscape
+  - "We're growing fast" → explore what breaks first, what needs to scale
+
+**Guardrails:**
+
+- Don't assume they want to scale - let them reveal their growth philosophy
+- If they say "I don't know," try: "What's worked well for you when adopting new tools before?"
+- Maximum 3 follow-ups, but follow their natural thinking about change and growth
+
+---
+
+## Step 8: Business Impact & Metrics
 
 Rules:
 
@@ -146,7 +195,7 @@ Rules:
 
 ---
 
-## Step 8: Investment & Cost Considerations
+## Step 9: Investment & Cost Considerations
 
 Rules:
 
@@ -173,7 +222,7 @@ Rules:
 
 ---
 
-## Step 9: Ongoing Ownership & Support
+## Step 10: Ongoing Ownership & Support
 
 Rules:
 
@@ -203,7 +252,7 @@ Rules:
 
 ---
 
-## Step 10: Stakeholder Priorities & Tradeoffs
+## Step 11: Stakeholder Priorities & Tradeoffs
 
 Rules:
 
@@ -220,7 +269,7 @@ Rules:
 
 ---
 
-## Step 11: Technical & Operational Details (Tech-Savvy Users Only)
+## Step 12: Technical & Operational Details (Tech-Savvy Users Only)
 
 Rules:
 
@@ -245,7 +294,7 @@ Rules:
 
 ---
 
-## Step 12: Final Requirements Document
+## Step 13: Final Requirements Document
 
 Rules:
 
@@ -256,15 +305,19 @@ Rules:
   - data_inputs
   - data_outputs
   - processing_requirements
+  - data_volume
+  - performance_expectations
   - existing_systems
   - current_workflow
   - user_interface
   - frequency
-  - complexity
+  - accessibility_preferences
+  - usage_context
   - success_criteria
   - constraints
   - deal_breakers
   - frustration_triggers
+  - growth_considerations
   - business_metrics
   - budget_considerations
   - ownership_model
@@ -272,7 +325,7 @@ Rules:
   - support_expectations
   - governance_requirements
   - stakeholder_priorities
-- If Step 11 was executed, also include:
+- If Step 12 was executed, also include:
   - technical_requirements
   - operational_constraints
   - non_functional_requirements
