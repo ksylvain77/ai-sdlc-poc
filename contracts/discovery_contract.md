@@ -2,6 +2,50 @@
 
 This contract defines the 13 steps the AI must follow for systematic requirements gathering.
 
+## Contract Enhancement Methodology
+
+This contract has been refined using a proven **Open-Ended Discovery Pattern** that successfully integrates new discovery areas without creating scope creep. When enhancing existing steps or adding new discovery dimensions, follow this methodology:
+
+### The Open-Ended Discovery Pattern
+
+1. **Start Open** - Begin with broad, approachable questions that don't assume user sophistication level
+
+   - Example: "Help me understand the size of what we're dealing with" vs "What's your expected transaction volume?"
+
+2. **Follow Their Lead** - Adapt questioning based on their responses and revealed context
+
+   - If they mention specific numbers → explore daily vs. peak volumes
+   - If they say "not much" → explore what that means to them
+   - If they're uncertain → try relatable analogies
+
+3. **Explore Naturally** - Use their language and mental framework to dig deeper
+
+   - Mirror their terminology and sophistication level
+   - Build on their examples and concerns
+   - Let their priorities guide the direction
+
+4. **Capture Systematically** - Map their natural responses to structured data fields
+
+   - Transform conversational insights into JSON-ready requirements
+   - Maintain the human context while creating machine-readable output
+
+5. **Provide Examples** - Show different directions the conversation could go
+
+   - Help other AIs understand the adaptive conversation patterns
+   - Demonstrate various user types and response strategies
+
+6. **Set Guardrails** - Prevent assumption-making and scope creep
+   - Maximum follow-up limits per discovery area
+   - Redirect techniques when conversations drift
+   - Fallback questions for uncertain users
+
+### Enhancement Strategy
+
+- **Prefer Enhancement Over Addition** - When new discovery needs arise, first check if they can be naturally integrated into existing steps (see Steps 3, 4, 7 as examples)
+- **Maintain Step Flow** - New discovery areas should feel like natural extensions of existing conversations, not abrupt topic changes
+- **Test Across Personas** - Validate enhancements work for both technical and non-technical users
+- **Document Patterns** - Update this methodology when new successful patterns emerge
+
 ## GUARDRAILS - CRITICAL
 
 **ELMO Protocol (Enough, Let's Move On):**
@@ -28,35 +72,64 @@ Full Contract Mode: When given a project request and instructed to "Follow the d
 
 ---
 
-## Step 1: Project Name & Problem Statement
+## Step 1: Problem & Project Identity
 
 Rules:
 
-- Ask for a simple project name (for file naming).
-- Ask what problem they're trying to solve in one sentence.
-- Capture as project_name and problem_statement.
+- Start warm and conversational: "I'm excited to help you figure this out! What's the main thing that's bugging you that you'd like to solve?"
+- Let them describe the problem naturally first
+- As they talk, listen for natural project identifiers or suggest based on their language:
+  - "It sounds like this is about [making invoices easier] - should we call it something like 'Invoice Helper' for now?"
+  - "You keep mentioning [order tracking] - want to call this 'Order Tracker' or something like that?"
+  - "What would you call this thing if you had to describe it to a friend?"
+- If no name emerges naturally: "We'll need something to call this project - any ideas? Even something simple works."
+- Adapt your tone to match theirs:
+  - If they're casual: stay relaxed and friendly
+  - If they're formal: be warm but professional
+  - If they're excited: match their energy
+  - If they're uncertain: be encouraging and patient
+- Capture as problem_statement and project_name (in that order of priority)
 
 **Guardrails:**
 
-- If user gives technical solution details, redirect: "That's implementation - what's the actual problem you're solving?"
-- If user gives long explanation, redirect: "Can you summarize the core problem in one sentence?"
-- Maximum 2 clarifying questions, then move to Step 2
+- Don't assume their communication style - let them set the tone
+- If they give technical solutions, gently redirect: "I love that you're thinking about solutions! But first, what problem is that solving?"
+- If they ramble, listen then guide: "I'm hearing a lot of good stuff - can you help me boil it down to the main thing?"
+- Maximum 3 conversational exchanges to get the basics, then move naturally to Step 2
 
 ---
 
-## Step 2: Solution Summary
+## Step 2: Current State & Context
 
 Rules:
 
-- Ask how they envision solving it (their mental picture).
-- Focus on the "what" not the "how" - what would the solution do, not technical implementation.
-- Capture as solution_summary.
+- Start open: "Help me understand how you're handling this today - what's your current reality?"
+- Follow their lead to understand their world:
+  - If they describe pain points: explore what's frustrating, what breaks, what takes too long
+  - If they describe aspirations: explore what inspired this idea, what they've seen elsewhere
+  - If they mention existing processes: explore what works, what doesn't, who's involved
+  - If they're uncertain: try "Walk me through what a typical [day/week/situation] looks like with this stuff"
+- Adapt language to their context:
+  - Business users: current workflows, team processes, existing tools
+  - Individual users: daily routines, current workarounds, personal frustrations
+  - Technical users: current architecture, system limitations, integration challenges
+- Explore their current state naturally:
+  - Current process: "How do you handle this now?"
+  - Inspiration sources: "What made you think about doing this project?"
+  - Context clues: "Who else is involved?" / "When does this become important?"
+- Capture as current_state, inspiration_context, stakeholders_involved
+- Examples of directions this could go:
+  - "I spend hours every week manually..." → explore time drains, repetitive tasks
+  - "I saw this cool thing that..." → explore what attracted them, how it might apply
+  - "Our team keeps running into..." → explore collaboration friction, communication gaps
+  - "I've been thinking it would be nice if..." → explore the gap between current and desired state
 
 **Guardrails:**
 
-- If user mentions specific technologies/frameworks, redirect: "What would it do, not how it's built?"
-- If user jumps to constraints/features, redirect: "Let me get the basic vision first"
-- Maximum 3 follow-ups to clarify the "what," then move to Step 3
+- Don't ask for solutions - focus purely on understanding their current reality and what brought them here
+- If they jump to solution ideas, redirect: "That's interesting - what's happening now that makes you think about that?"
+- If they describe technical implementations, redirect: "Help me understand the current situation that's driving this"
+- Maximum 3 follow-ups to understand their current state and context
 
 ---
 
@@ -124,15 +197,28 @@ Rules:
 
 Rules:
 
-- Ask what would make the solution unusable (things they won't do, timing issues, privacy concerns).
-- Capture as constraints and deal_breakers.
-- If they bring up edge cases ("What if I miss a day?"), record in constraints.
+- Start open: "What would make this solution completely unusable for you?"
+- Follow their lead on what concerns them most:
+  - If they mention time constraints: explore deadlines, availability windows
+  - If they mention privacy concerns: explore what data feels sensitive, who can't see what
+  - If they mention workflow disruption: explore what can't change, what must stay the same
+  - If they're uncertain: try "What's absolutely non-negotiable in your world?"
+- Adapt language to their context:
+  - Individual users: personal preferences, lifestyle constraints, comfort zones
+  - Business users: policy requirements, compliance needs, operational limits
+  - Technical users: architectural constraints, integration limitations
+- Capture as constraints, deal_breakers, edge_cases
+- Examples of directions this could go:
+  - "I can't share personal data" → explore privacy boundaries, data handling preferences
+  - "We have compliance requirements" → explore regulatory constraints, audit needs
+  - "I'm not available during work hours" → explore timing constraints, notification preferences
+  - "It can't break our current process" → explore integration constraints, change limitations
 
 **Guardrails:**
 
-- Focus only on deal-breakers and constraints, not solutions
-- If user starts problem-solving edge cases, redirect: "Let me just capture the constraint for now"
-- If discussion becomes too detailed, use ELMO: "Enough detail - what else would be a deal-breaker?"
+- Don't assume their risk tolerance - let them reveal what they're worried about
+- If they say "I don't know," try: "What's gone wrong with similar projects before?"
+- Focus only on constraints, not solutions - redirect problem-solving: "Let me just capture that concern for now"
 - Maximum 3 constraint areas before moving on
 
 ---
@@ -141,10 +227,33 @@ Rules:
 
 Rules:
 
-- Ask what success looks like (how they'll know it works).
-- Capture as success_criteria.
-- Ask what would frustrate them or make them abandon it.
-- Capture as frustration_triggers.
+- Start open: "How will you know this project was a win for you?"
+- Follow their lead on what success means to them:
+  - If they mention specific outcomes: explore what those look like day-to-day
+  - If they mention feelings: explore what creates those feelings
+  - If they mention metrics: explore what numbers matter most
+  - If they're uncertain: try "What would make you think 'this was totally worth it'?"
+- Adapt language to their context:
+  - Individual users: personal satisfaction, time saved, stress reduced
+  - Business users: KPIs, team productivity, customer satisfaction
+  - Technical users: performance metrics, system reliability, developer experience
+- Explore their success framework naturally:
+  - Success indicators: "What would you see happening that tells you it's working?"
+  - Frustration triggers: "What would make you regret doing this project?"
+  - Warning signs: "How would you know early if this was going off track?"
+- Capture as success_criteria, frustration_triggers, warning_signs
+- Examples of directions this could go:
+  - "I'd have my evenings back" → explore time savings, work-life balance indicators
+  - "Our customers would be happier" → explore satisfaction metrics, feedback signals
+  - "No more emergency calls" → explore reliability indicators, peace of mind measures
+  - "The team could focus on important stuff" → explore productivity indicators, strategic work time
+
+**Guardrails:**
+
+- Don't assume their success framework - let them reveal what matters
+- If they say "I don't know," try: "Think about your best day with this working perfectly - what's different?"
+- Focus on their outcomes, not prescribing metrics
+- Maximum 3 follow-ups per area (success/frustration/warnings)
 
 ---
 
@@ -177,21 +286,23 @@ Rules:
 
 ---
 
-## Step 8: Business Impact & Metrics
+## Step 8: Value & Impact Understanding
 
-Rules:
+_Open-ended discovery approach:_
+What value do you expect this to create?
 
-- Ask how they'll measure if this project was worth the investment.
-- Probe for quantifiable outcomes: "What would change if this works perfectly?"
-- Explore business value indicators:
-  - Time savings - "How much time does this currently take?" / "What would you do with that saved time?"
-  - Cost reduction - "What does the current process cost?" / "Where do you see cost savings?"
-  - Revenue impact - "Could this help you make more money?" / "How?"
-  - Quality improvements - "What gets better for users/customers?"
-  - Risk mitigation - "What problems does this prevent?"
-  - Compliance benefits - "Does this help meet any requirements?"
-- Capture as business_metrics with specific, measurable indicators where possible.
-- Examples: "Save 2 hours per week," "Reduce support tickets by 30%," "Improve customer satisfaction scores"
+_Follow-up areas (explore based on their response):_
+
+- Success measurement (How will you know it's working?)
+- Problem urgency (What happens without this?)
+- Beneficiary impact (Who gets the most value?)
+
+_Capture:_
+
+- Core value proposition in their words
+- Success indicators they care about
+- Current pain points or opportunities
+- Stakeholder benefit distribution
 
 ---
 
