@@ -5,7 +5,7 @@
 1. Microsoft content policies
 2. copilot-instructions.md (this file)
 3. Explicit user instructions in the IDE
-4. Internal heuristics (only if they do **not** conflict with 1–3)
+4. Internal heuristics never used unless extreme violations of 1
 
 ---
 
